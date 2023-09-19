@@ -1,21 +1,12 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
+import AppDrawer from './components/AppDrawer.vue';
 </script>
 
 <template>
-  <v-layout class="rounded rounded-md">
-    <v-app-bar title="Application bar"></v-app-bar>
-    <v-navigation-drawer>
-      <v-list>
-        <v-list-item title="Perfil">
-          <RouterLink to="/create-profile" />
-        </v-list-item>
-        <v-list-item title="Perfil">
-          <RouterLink to="/create-profile" />
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-main class="d-flex align-center justify-center">
+  <v-layout>
+    <AppDrawer user-avatar="https://i.pravatar.cc/300" user-name="Noe hernandez" user-email="noe.hernandez@correo.com" />
+    <v-main class="d-flex h-screen flex-column flex-fill bg-grey">
       <RouterView />
     </v-main>
   </v-layout>

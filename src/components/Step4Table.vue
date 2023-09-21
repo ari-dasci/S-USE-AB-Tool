@@ -1,5 +1,5 @@
 <template>
-    <VCard class="my-2">
+    <VCard>
         <template #title>
             <div class="d-flex justify-space-between">
                 <p>Step 4. Comformation of set of users</p>
@@ -16,7 +16,15 @@
                 <div>Experts</div>
             </div>
             <div class="w-50">
-                <v-slider class="mx-10 mt-6" step="1" max="100" v-model="percentage" />
+                <v-slider
+                    v-model="percentage"
+                    class="mx-10 mt-6"
+                    step="1"
+                    max="100"
+                    color="grey"
+                    track-color="grey"
+                    thumb-color="grey"
+                />
             </div>
             <div class="d-flex flex-column align-center">
                 <h2>{{ percentage }}%</h2>
@@ -27,17 +35,19 @@
             </div>
         </div>
         <v-card-actions class="justify-end">
-            <VBtn @click="router.push('/wizard/5')" class="my-4 mx-1" color="primary" variant="elevated">Next</VBtn>
+            <VBtn
+                class="my-4 mx-1"
+                color="primary"
+                variant="elevated"
+                :to="`/projects/${$route.params.project}/wizard/5`"
+                >Next</VBtn
+            >
         </v-card-actions>
     </VCard>
 </template>
 
-
 <script setup>
 import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
 
 const percentage = ref(50);
 </script>

@@ -1,41 +1,51 @@
+<!-- eslint-disable vue/no-v-model-argument -->
 <!-- eslint-disable vue/valid-v-slot -->
 <template>
-    <VCard class="my-2">
+    <VCard>
         <template #title>
             <p>Step 2. conformation of the set of criteria</p>
         </template>
         <v-divider></v-divider>
-        <v-data-table v-model="selected" show-select v-model:items-per-page="itemsPerPage" :headers="headers"
-            :items="criteria" item-value="alias">
-            <template v-slot:item.scale="{ item }">
+        <v-data-table
+            v-model="selected"
+            v-model:items-per-page="itemsPerPage"
+            show-select
+            :headers="headers"
+            :items="criteria"
+            item-value="id"
+        >
+            <template #item.scale="{ item }">
                 <v-chip>{{ item.columns.scale }}</v-chip>
             </template>
-            <template v-slot:item.index="{ item }">
+            <template #item.index="{ item }">
                 {{ item.index + 1 }}
             </template>
         </v-data-table>
         <v-card-actions class="justify-end">
-            <VBtn class="my-4 mx-1" color="secondary" variant="elevated" prepend-icon="attach_file">add Files</VBtn>
-            <VBtn @click="router.push('/wizard/3')" class="my-4 mx-1" color="primary" variant="elevated">Next</VBtn>
+            <VBtn class="my-4 mx-1" color="secondary" variant="elevated" prepend-icon="attach_file"
+                >add Files</VBtn
+            >
+            <VBtn
+                class="my-4 mx-1"
+                color="primary"
+                variant="elevated"
+                :to="`/projects/${$route.params.project}/wizard/3`"
+                >Next</VBtn
+            >
         </v-card-actions>
     </VCard>
 </template>
 
-
 <script setup>
-
-import { LoremIpsum } from "lorem-ipsum";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-
-const router = useRouter();
+import { LoremIpsum } from 'lorem-ipsum';
+import { v4 as uuid } from 'uuid';
+import { ref } from 'vue';
 
 const itemsPerPage = ref(5);
 
 const selected = ref([]);
 
 // const languages = ['es', 'en'];
-
 
 const lorem = new LoremIpsum({
     sentencesPerParagraph: {
@@ -49,38 +59,36 @@ const lorem = new LoremIpsum({
 });
 
 const headers = [
-    { title: '#', key: 'index', },
-    { title: 'Alias', key: 'alias', },
-    { title: 'Name', key: 'name', },
-    { title: 'Instructions', key: 'instructions', },
+    { title: '#', key: 'index' },
+    { title: 'Alias', key: 'alias' },
+    { title: 'Name', key: 'name' },
+    { title: 'Instructions', key: 'instructions' },
     // { title: 'Language', key: 'index',  },
-    { title: 'Responses scale', key: 'scale', },
+    { title: 'Responses scale', key: 'scale' }
     // { title: 'Actions', key: 'index',  },
 ];
 
 const criteria = [
     {
-        visible: true,
+        id: uuid(),
         alias: 'SUS',
         name: 'System usability scale',
         instructions: lorem.generateParagraphs(1),
         scale: '1-5'
     },
     {
-        visible: true,
+        id: uuid(),
         alias: 'NPS',
         name: 'Net promoter score',
         instructions: lorem.generateParagraphs(1),
         scale: '0-10'
     },
     {
-        visible: true,
+        id: uuid(),
         alias: 'Usability test',
         name: 'Set of activities for LMS',
         instructions: lorem.generateParagraphs(1),
         scale: '5^5'
-    },
-
+    }
 ];
-
 </script>

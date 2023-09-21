@@ -1,5 +1,5 @@
 <template>
-    <VCard class="my-2">
+    <VCard>
         <template #title>
             <div class="d-flex justify-space-between">
                 <p>Step 3. Elicit pairwise judgements regarding importance of criteria</p>
@@ -7,49 +7,41 @@
             </div>
         </template>
         <v-divider></v-divider>
-        <v-data-table show-select :items="criteria">
+        <v-table :headers="criteria" :items="criteria">
             <thead>
-                <tr>
-                    <th class="text-left">
-                        Criteria
-                    </th>
-                    <th class="text-left">
-                        SUS
-                    </th>
-                    <th class="text-left">
-                        NPS
-                    </th>
-                    <th class="text-left">
-                        Usability Test
-                    </th>
-                </tr>
+                <th>Criteria</th>
+                <th v-for="item of criteria" :key="item.title">{{ item.alias }}</th>
             </thead>
             <tbody>
-                <tr v-for="(item) of criteria" :key="item.name">
+                <tr v-for="item of criteria" :key="item.title">
                     <td>{{ item.alias }}</td>
-                    <td><v-select v-model="value" :items="criteriaImportance" density="compact"></v-select></td>
-                    <td><v-select v-model="value" :items="criteriaImportance" density="compact"></v-select></td>
-                    <td><v-select v-model="value" :items="criteriaImportance" density="compact"></v-select></td>
+                    <td v-for="item2 of criteria" :key="item2.title">
+                        <v-select
+                            v-model="value"
+                            :items="criteriaImportance"
+                            density="compact"
+                            :disabled="item.id == item2.id"
+                        ></v-select>
+                    </td>
                 </tr>
             </tbody>
-        </v-data-table>
+        </v-table>
         <v-card-actions class="justify-end">
-            <VBtn @click="router.push('/wizard/4')" class="my-4 mx-1" color="primary" variant="elevated">Next</VBtn>
+            <VBtn
+                class="my-4 mx-1"
+                color="primary"
+                variant="elevated"
+                :to="`/projects/${$route.params.project}/wizard/4`"
+                >Next</VBtn
+            >
         </v-card-actions>
     </VCard>
 </template>
 
-
 <script setup>
-import { LoremIpsum } from "lorem-ipsum";
+import { LoremIpsum } from 'lorem-ipsum';
 
-import { useRouter } from "vue-router";
-
-const router = useRouter();
-
-
-
-const value = [null];
+const value = [];
 
 const lorem = new LoremIpsum({
     sentencesPerParagraph: {
@@ -64,32 +56,32 @@ const lorem = new LoremIpsum({
 
 const criteria = [
     {
-        visible: true,
+        id: 1,
         alias: 'SUS',
-        name: 'System usability scale',
+        title: 'System usability scale',
         instructions: lorem.generateParagraphs(1),
         responsesScale: ''
     },
     {
-        visible: true,
+        id: 2,
         alias: 'NPS',
-        name: 'Net promoter score',
+        title: 'Net promoter score',
         instructions: lorem.generateParagraphs(1),
         responsesScale: ''
     },
     {
-        visible: true,
+        id: 3,
         alias: 'Usability test',
-        name: 'Set of activities for LMS',
+        title: 'Set of activities for LMS',
         instructions: lorem.generateParagraphs(1),
         responsesScale: ''
-    },
-
+    }
 ];
 
-const criteriaImportance = [{
-    title: "Equally important",
-    value: null,
-}];
-
+const criteriaImportance = [
+    {
+        title: 'Equally important',
+        value: null
+    }
+];
 </script>

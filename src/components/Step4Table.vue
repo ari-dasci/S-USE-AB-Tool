@@ -10,9 +10,9 @@
             <div class="d-flex flex-column align-center">
                 <h2>{{ 100 - percentage }}%</h2>
 
-                <VAvatar color="surface-variant" size="128" class="mx-n6">
-                    <VImg src="https://i.pravatar.cc/300"></VImg>
-                </VAvatar>
+                <v-avatar color="surface-variant" size="128" class="mx-n6">
+                    <v-img src="https://i.pravatar.cc/300"></v-img>
+                </v-avatar>
                 <div>Experts</div>
             </div>
             <div class="w-50">
@@ -28,9 +28,9 @@
             </div>
             <div class="d-flex flex-column align-center">
                 <h2>{{ percentage }}%</h2>
-                <VAvatar color="surface-variant" size="128" class="mx-n6">
-                    <VImg src="https://i.pravatar.cc/300?asdfasdf"></VImg>
-                </VAvatar>
+                <v-avatar color="surface-variant" size="128" class="mx-n6">
+                    <v-img src="https://i.pravatar.cc/300?asdfasdf"></v-img>
+                </v-avatar>
                 <div>End users</div>
             </div>
         </div>

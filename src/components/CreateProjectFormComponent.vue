@@ -4,6 +4,7 @@ import { required } from '@vuelidate/validators';
 import { reactive, ref } from 'vue';
 import { useProjectsStore } from '../stores/projects';
 
+const emit = defineEmits(['submitted']);
 const store = useProjectsStore();
 
 const isLoading = ref(false);
@@ -26,10 +27,13 @@ const v$ = useVuelidate(rules, state);
 const onSubmit = async () => {
     try {
         isLoading.value = true;
-        const { title, picked, start, end } = v$.value;
+        const isFormCorrect = await v$.value.$validate();
+        if (!isFormCorrect) return;
+        console.log(state);
+        const { title, picked, start, end } = state;
         const logo = await getImgData(picked[0]);
         await store.createProject({ title, logo, start: new Date(start), end: new Date(end) });
-        this.$emit('submited');
+        emit('submitted');
     } finally {
         isLoading.value = false;
     }

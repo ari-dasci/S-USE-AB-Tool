@@ -1,9 +1,9 @@
 <template>
     <VCard title="Register" class="ma-auto w-50 pa-4 d-flex flex-column align-stretch rounded-lg">
         <div class="avatar d-flex justify-center align-end">
-            <VAvatar color="surface-variant" size="128" class="mx-n6">
-                <VImg :src="`https://i.pravatar.cc/300?u=${id}`"></VImg>
-            </VAvatar>
+            <v-avatar color="surface-variant" size="128" class="mx-n6">
+                <v-img :src="`https://i.pravatar.cc/300?u=${id}`"></v-img>
+            </v-avatar>
             <VBtn icon="add_a_photo" color="primary"> </VBtn>
         </div>
         <div class="my-4"></div>

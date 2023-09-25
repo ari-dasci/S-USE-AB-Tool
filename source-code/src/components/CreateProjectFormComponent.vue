@@ -3,66 +3,51 @@ import { useVuelidate } from '@vuelidate/core';
 import { required } from '@vuelidate/validators';
 import { reactive, ref } from 'vue';
 import { useProjectsStore } from '../stores/projects';
+import ImgPickerComponent from './ImgPickerComponent.vue';
 
 const emit = defineEmits(['submitted']);
 const store = useProjectsStore();
 
 const isLoading = ref(false);
+
 const state = reactive({
     title: '',
-    picked: null,
+    logo: null,
     start: null,
     end: null
 });
 
 const rules = {
     title: { required },
-    picked: { required },
+    logo: { required },
     start: { required },
     end: { required }
 };
 
 const v$ = useVuelidate(rules, state);
 
+const onPicked = async img => {
+    state.logo = img;
+};
+
 const onSubmit = async () => {
     try {
         isLoading.value = true;
         const isFormCorrect = await v$.value.$validate();
         if (!isFormCorrect) return;
-        console.log(state);
-        const { title, picked, start, end } = state;
-        const logo = await getImgData(picked[0]);
+        const { title, logo, start, end } = state;
         await store.createProject({ title, logo, start: new Date(start), end: new Date(end) });
         emit('submitted');
     } finally {
         isLoading.value = false;
     }
 };
-const getImgData = files => {
-    if (!files) return Promise.resolve();
-
-    return new Promise((resolve, reject) => {
-        const fileReader = new FileReader();
-        const timer = setTimeout(reject, 5000);
-        fileReader.readAsDataURL(files);
-        fileReader.addEventListener('load', function () {
-            clearTimeout(timer);
-            resolve(this.result);
-        });
-    });
-};
 </script>
 
 <template>
     <VForm class="ma-2" @submit.prevent="onSubmit">
+        <ImgPickerComponent :avatar="state.logo" @change="onPicked" />
         <VTextField v-model="state.title" label="Project name" name="title"></VTextField>
-        <VFileInput
-            v-model="state.picked"
-            label="Logo"
-            prepend-icon="image"
-            accept="image/png, image/jpeg, image/bmp"
-            name="logo"
-        ></VFileInput>
         <div class="d-flex">
             <v-text-field
                 v-model="state.start"

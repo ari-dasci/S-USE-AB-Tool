@@ -5,14 +5,17 @@ export const useUserStore = defineStore('user', {
         user: null
     }),
     getters: {
-        isLoggedIn: state => !!state.user,
+        isAuthenticated: state => !!state.user,
         userFullName: state => state.user && `${state.user.name} ${state.user.surname}`
     },
     actions: {
-        register(user) {
+        async register(user) {
+            await new Promise(resolve => {
+                setTimeout(resolve, 2000);
+            });
             this.user = user;
         },
-        logout() {
+        async logout() {
             this.user = null;
         }
     },

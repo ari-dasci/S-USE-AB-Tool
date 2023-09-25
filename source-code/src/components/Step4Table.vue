@@ -1,11 +1,5 @@
 <template>
-    <VCard>
-        <template #title>
-            <div class="d-flex justify-space-between">
-                <p>Step 4. Comformation of set of users</p>
-            </div>
-        </template>
-        <v-divider></v-divider>
+    <v-card>
         <div class="d-flex ma-10 align-center justify-center">
             <div class="d-flex flex-column align-center">
                 <h2>{{ 100 - percentage }}%</h2>
@@ -34,16 +28,7 @@
                 <div>End users</div>
             </div>
         </div>
-        <v-card-actions class="justify-end">
-            <VBtn
-                class="my-4 mx-1"
-                color="primary"
-                variant="elevated"
-                :to="`/projects/${$route.params.project}/wizard/5`"
-                >Next</VBtn
-            >
-        </v-card-actions>
-    </VCard>
+    </v-card>
 </template>
 
 <script setup>

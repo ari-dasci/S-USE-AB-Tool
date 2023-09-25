@@ -1,11 +1,26 @@
+<script setup>
+import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '../stores/user';
+
+const store = useUserStore();
+
+const { userFullName, user } = storeToRefs(store);
+const router = useRouter();
+
+const logout = () => {
+    store.logout();
+    router.replace('/signUp');
+};
+</script>
+
 <template>
-    <v-navigation-drawer class="position-fixed" expand-on-hover rail>
+    <v-navigation-drawer class="position-fixed" expand-on-hover rail permanent>
         <v-list>
             <v-list-item
-                :prepend-avatar="`https://i.pravatar.cc/150?u=${user?.id}`"
+                :prepend-avatar="user?.avatar"
                 :title="userFullName"
                 :subtitle="user?.email"
-                to="/sign-up"
             />
         </v-list>
         <v-divider></v-divider>
@@ -21,23 +36,38 @@
             <v-list-item
                 variant="flat"
                 color="primary"
-                prepend-icon="inventory"
+                prepend-icon="quiz"
                 title="Tests"
                 to="/tests"
             ></v-list-item>
             <v-list-item
                 variant="flat"
                 color="primary"
-                prepend-icon="star"
-                title="Starred"
+                prepend-icon="people"
+                title="Users"
             ></v-list-item>
+            <v-list-item
+                variant="flat"
+                color="primary"
+                prepend-icon="construction"
+                title="Roles"
+            ></v-list-item>
+            <v-list-item
+                variant="flat"
+                color="primary"
+                prepend-icon="edit_note"
+                title="Reports"
+            ></v-list-item>
+            <v-spacer />
         </v-list>
+        <template #append>
+            <v-list-item
+                variant="flat"
+                color="primary"
+                prepend-icon="logout"
+                title="Logout"
+                @click="logout"
+            ></v-list-item>
+        </template>
     </v-navigation-drawer>
 </template>
-
-<script setup>
-import { storeToRefs } from 'pinia';
-import { useUserStore } from '../stores/user';
-
-const { userFullName, user } = storeToRefs(useUserStore());
-</script>

@@ -14,6 +14,7 @@ module.exports = {
         ecmaVersion: 'latest'
     },
     rules: {
-        'vue/valid-v-slot': 'off'
+        'vue/valid-v-slot': 'off',
+        'vue/no-v-model-argument': 'off'
     }
 };

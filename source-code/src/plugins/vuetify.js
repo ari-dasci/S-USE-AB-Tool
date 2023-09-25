@@ -9,6 +9,15 @@ import { aliases, md } from 'vuetify/iconsets/md';
 import colors from 'vuetify/lib/util/colors';
 
 import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/labs/VDataTable';
+import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
+import {
+    VStepper,
+    VStepperActions,
+    VStepperHeader,
+    VStepperItem,
+    VStepperWindow,
+    VStepperWindowItem
+} from 'vuetify/labs/VStepper';
 
 const theme = {
     themes: {
@@ -31,7 +40,19 @@ const icons = {
 };
 
 export default createVuetify({
-    components: { ...components, VDataTable, VDataTableServer, VDataTableVirtual },
+    components: {
+        ...components,
+        VDataTable,
+        VDataTableServer,
+        VDataTableVirtual,
+        VStepper,
+        VStepperHeader,
+        VStepperItem,
+        VStepperActions,
+        VStepperWindow,
+        VStepperWindowItem,
+        VSkeletonLoader
+    },
     directives,
     theme,
     icons

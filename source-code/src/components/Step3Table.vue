@@ -1,41 +1,23 @@
 <template>
-    <VCard>
-        <template #title>
-            <div class="d-flex justify-space-between">
-                <p>Step 3. Elicit pairwise judgements regarding importance of criteria</p>
-                <v-chip class="bg-success">CI=.09</v-chip>
-            </div>
-        </template>
-        <v-divider></v-divider>
-        <v-table :headers="criteria" :items="criteria">
-            <thead>
-                <th>Criteria</th>
-                <th v-for="item of criteria" :key="item.title">{{ item.alias }}</th>
-            </thead>
-            <tbody>
-                <tr v-for="item of criteria" :key="item.title">
-                    <td>{{ item.alias }}</td>
-                    <td v-for="item2 of criteria" :key="item2.title">
-                        <v-select
-                            v-model="value"
-                            :items="criteriaImportance"
-                            density="compact"
-                            :disabled="item.id == item2.id"
-                        ></v-select>
-                    </td>
-                </tr>
-            </tbody>
-        </v-table>
-        <v-card-actions class="justify-end">
-            <VBtn
-                class="my-4 mx-1"
-                color="primary"
-                variant="elevated"
-                :to="`/projects/${$route.params.project}/wizard/4`"
-                >Next</VBtn
-            >
-        </v-card-actions>
-    </VCard>
+    <v-table :headers="criteria" :items="criteria">
+        <thead>
+            <th>Criteria</th>
+            <th v-for="item of criteria" :key="item.title">{{ item.alias }}</th>
+        </thead>
+        <tbody>
+            <tr v-for="item of criteria" :key="item.title">
+                <td>{{ item.alias }}</td>
+                <td v-for="item2 of criteria" :key="item2.title">
+                    <v-select
+                        v-model="value"
+                        :items="criteriaImportance"
+                        density="compact"
+                        :disabled="item.id == item2.id"
+                    ></v-select>
+                </td>
+            </tr>
+        </tbody>
+    </v-table>
 </template>
 
 <script setup>

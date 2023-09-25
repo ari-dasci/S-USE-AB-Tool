@@ -1,10 +1,5 @@
 <template>
-    <VCard>
-        <template #title>
-            <div class="d-flex justify-space-between">
-                <p>Step 5. Comformation of set of users</p>
-            </div>
-        </template>
+    <v-card>
         <div class="d-flex flex-wrap align-content-space-evenly">
             <div v-for="v in options" :key="v.id" class="w-25 p-2">
                 <v-list-item
@@ -14,22 +9,13 @@
                     class="d-inline-block ma-1 rounded"
                     prepend-icon="visibility"
                     variant="elevated"
-                    active-color="secondary"
+                    color="secondary"
                     @click="() => (selected.has(v.id) ? selected.delete(v.id) : selected.add(v.id))"
                 >
                 </v-list-item>
             </div>
         </div>
-        <v-card-actions class="justify-end">
-            <VBtn
-                class="my-4 mx-1"
-                color="primary"
-                variant="elevated"
-                :to="`/projects/${$route.params.project}/wizard/6`"
-                >Next</VBtn
-            >
-        </v-card-actions>
-    </VCard>
+    </v-card>
 </template>
 
 <script setup>

@@ -1,39 +1,24 @@
-<!-- eslint-disable vue/no-v-model-argument -->
-<!-- eslint-disable vue/valid-v-slot -->
 <template>
-    <VCard>
-        <template #title>
-            <p>Step 2. conformation of the set of criteria</p>
+    <v-data-table
+        v-model="selected"
+        v-model:items-per-page="itemsPerPage"
+        show-select
+        :headers="headers"
+        :items="criteria"
+        item-value="id"
+    >
+        <template #top>
+            <v-toolbar flat>
+                <v-toolbar-title>Criterian</v-toolbar-title>
+            </v-toolbar>
         </template>
-        <v-divider></v-divider>
-        <v-data-table
-            v-model="selected"
-            v-model:items-per-page="itemsPerPage"
-            show-select
-            :headers="headers"
-            :items="criteria"
-            item-value="id"
-        >
-            <template #item.scale="{ item }">
-                <v-chip>{{ item.columns.scale }}</v-chip>
-            </template>
-            <template #item.index="{ item }">
-                {{ item.index + 1 }}
-            </template>
-        </v-data-table>
-        <v-card-actions class="justify-end">
-            <VBtn class="my-4 mx-1" color="secondary" variant="elevated" prepend-icon="attach_file"
-                >add Files</VBtn
-            >
-            <VBtn
-                class="my-4 mx-1"
-                color="primary"
-                variant="elevated"
-                :to="`/projects/${$route.params.project}/wizard/3`"
-                >Next</VBtn
-            >
-        </v-card-actions>
-    </VCard>
+        <template #item.scale="{ item }">
+            <v-chip>{{ item.columns.scale }}</v-chip>
+        </template>
+        <template #item.index="{ item }">
+            {{ item.index + 1 }}
+        </template>
+    </v-data-table>
 </template>
 
 <script setup>
@@ -87,6 +72,13 @@ const criteria = [
         id: uuid(),
         alias: 'Usability test',
         name: 'Set of activities for LMS',
+        instructions: lorem.generateParagraphs(1),
+        scale: '5^5'
+    },
+    {
+        id: uuid(),
+        alias: 'ACC',
+        name: lorem.generateSentences(1),
         instructions: lorem.generateParagraphs(1),
         scale: '5^5'
     }

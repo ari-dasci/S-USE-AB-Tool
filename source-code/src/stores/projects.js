@@ -21,14 +21,5 @@ export const useProjectsStore = defineStore('projects', {
             this.projects = this.projects.filter(p => p.id != projectId);
         }
     },
-    persist: {
-        enable: true,
-        from: json => {
-            json.projects.forEach(e => {
-                e.start = e.start && new Date(e.start);
-                e.end = e.end && new Date(e.end);
-            });
-            return json;
-        }
-    }
+    persist: true
 });

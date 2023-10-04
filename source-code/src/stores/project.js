@@ -12,7 +12,9 @@ export const useProjectStore = defineStore('project', {
                 url: 'https://ugr.es',
                 logo: ''
             }
-        ]
+        ],
+        selectedCriteria: [],
+        selectedRoles: new Set()
     }),
     actions: {
         async getProject(id) {
@@ -29,6 +31,14 @@ export const useProjectStore = defineStore('project', {
             console.log(id);
             await new Promise(resolve => setTimeout(resolve, 2000));
             this.alternatives = this.alternatives.filter(a => a.id != id);
+        },
+        setEvaluationCriteria(selected) {
+            this.selectedCriteria = selected;
+        },
+        updateRoles(id) {
+            return this.selectedRoles.has(id)
+                ? this.selectedRoles.delete(id)
+                : this.selectedRoles.add(id);
         }
     }
 });

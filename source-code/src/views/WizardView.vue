@@ -4,11 +4,11 @@ import { computed, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { useProjectStore } from '../stores/project';
 
+import Step5Table from '../components/ConformationOfRoles.vue';
 import ProjectAlternativesList from '../components/ProjectAlternativesList.vue';
-import Step2Table from '../components/Step2Table.vue';
-import Step3Table from '../components/Step3Table.vue';
+import Step3Table from '../components/ProjectCriterianCoorelation.vue';
+import Step2Table from '../components/ProjectCriteriaSelection.vue';
 import Step4Table from '../components/Step4Table.vue';
-import Step5Table from '../components/Step5Table.vue';
 import Step6Table from '../components/Step6Table.vue';
 
 onMounted(() => {
@@ -44,16 +44,14 @@ const steps = [
             class="d-flex flex-column flex-nowrap align-center justify-center h-25"
         >
             <h1 class="d-flex">{{ project?.title }}</h1>
-            <v-responsive :aspect-ratio="1">
-                <v-avatar class="flex-grow-1 ma-2" :img="project?.logo"> </v-avatar>
-            </v-responsive>
+            <v-avatar size="120" :img="project?.logo"> </v-avatar>
         </v-card>
         <div class="my-1"></div>
-        <v-stepper :model-value="step" class="h-75">
+        <v-stepper editable :model-value="step">
             <v-stepper-header>
                 <v-stepper-item
                     v-for="(title, index) in steps"
-                    :key="index"
+                    :key="title"
                     :title="index == step ? title : ''"
                     :value="index"
                     color="primary"
@@ -64,37 +62,50 @@ const steps = [
             </v-stepper-header>
             <v-stepper-window>
                 <v-stepper-window-item>
-                    <ProjectAlternativesList />
+                    <v-lazy>
+                        <ProjectAlternativesList />
+                    </v-lazy>
                 </v-stepper-window-item>
                 <v-stepper-window-item>
-                    <Step2Table />
+                    <v-lazy>
+                        <Step2Table />
+                    </v-lazy>
                 </v-stepper-window-item>
                 <v-stepper-window-item>
-                    <Step3Table />
+                    <v-lazy>
+                        <Step3Table />
+                    </v-lazy>
                 </v-stepper-window-item>
                 <v-stepper-window-item>
-                    <Step4Table />
+                    <v-lazy>
+                        <Step4Table />
+                    </v-lazy>
                 </v-stepper-window-item>
                 <v-stepper-window-item>
-                    <Step5Table />
+                    <v-lazy>
+                        <Step5Table />
+                    </v-lazy>
                 </v-stepper-window-item>
                 <v-stepper-window-item>
-                    <Step6Table />
+                    <v-lazy>
+                        <Step6Table />
+                    </v-lazy>
                 </v-stepper-window-item>
             </v-stepper-window>
-
-            <v-stepper-actions
-                @click:prev="
-                    () => {
-                        $router.go(-1);
-                    }
-                "
-                @click:next="
-                    () => {
-                        $router.push({ query: { step: Number(step) + 1 } });
-                    }
-                "
-            ></v-stepper-actions>
+            <template #actions>
+                <v-stepper-actions
+                    @click:prev="
+                        () => {
+                            $router.go(-1);
+                        }
+                    "
+                    @click:next="
+                        () => {
+                            $router.push({ query: { step: Number(step) + 1 } });
+                        }
+                    "
+                ></v-stepper-actions>
+            </template>
         </v-stepper>
     </div>
 </template>
@@ -102,7 +113,6 @@ const steps = [
 <style>
 .v-stepper-window {
     margin: 0 !important;
-    height: 80%;
     overflow-y: auto;
 }
 

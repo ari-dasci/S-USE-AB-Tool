@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-const props = defineProps({ avatar: { type: String, required: true } });
+const props = defineProps({ avatar: { type: String, default: null } });
 const emit = defineEmits(['change']);
 
 const isLoading = ref(false);

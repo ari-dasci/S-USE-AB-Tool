@@ -35,11 +35,7 @@ const intl = new Intl.DateTimeFormat('es-MX');
         </v-toolbar>
         <div class="d-flex flex-wrap">
             <div v-for="project in projects" :key="project.id" class="w-25 pa-2">
-                <v-card
-                    max-width="344"
-                    class="flex-column"
-                    @click="$router.push(`/projects/${project.id}/wizard`)"
-                >
+                <v-card class="flex-column" @click="$router.push(`/projects/${project.id}/wizard`)">
                     <v-img height="120" :src="project.logo" cover />
                     <v-card-title>{{ project.title }} </v-card-title>
                     <v-card-subtitle>

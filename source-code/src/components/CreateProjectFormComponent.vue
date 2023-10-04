@@ -11,17 +11,14 @@ const store = useProjectsStore();
 const isLoading = ref(false);
 
 const state = reactive({
-    title: '',
     logo: null,
-    start: null,
-    end: null
+    title: '',
+    date: []
 });
 
 const rules = {
     title: { required },
-    logo: { required },
-    start: { required },
-    end: { required }
+    logo: { required }
 };
 
 const v$ = useVuelidate(rules, state);
@@ -33,9 +30,8 @@ const onPicked = async img => {
 const onSubmit = async () => {
     try {
         isLoading.value = true;
-        const isFormCorrect = await v$.value.$validate();
-        if (!isFormCorrect) return;
-        const { title, logo, start, end } = state;
+        const { title, logo, date } = state;
+        const [start, end] = date;
         await store.createProject({ title, logo, start: new Date(start), end: new Date(end) });
         emit('submitted');
     } finally {
@@ -48,22 +44,18 @@ const onSubmit = async () => {
     <VForm class="ma-2" @submit.prevent="onSubmit">
         <ImgPickerComponent :avatar="state.logo" @change="onPicked" />
         <VTextField v-model="state.title" label="Project name" name="title"></VTextField>
-        <div class="d-flex">
-            <v-text-field
-                v-model="state.start"
-                label="Start date"
-                class="mr-1"
-                type="datetime-local"
-                name="start"
-            />
-            <v-text-field
-                v-model="state.end"
-                label="End date"
-                class="ml-1"
-                type="datetime-local"
-                name="end"
-            />
-        </div>
+        <v-menu :close-on-content-click="false">
+            <template #activator="{ props }">
+                <v-text-field
+                    v-model="state.date"
+                    label="Picker in menu"
+                    prepend-icon="event"
+                    readonly
+                    v-bind="props"
+                ></v-text-field>
+            </template>
+            <v-date-picker v-model="state.date" multiple scrollable range> </v-date-picker>
+        </v-menu>
         <div class="my-2"></div>
         <v-card-actions>
             <VBtn :loading="isLoading" type="submit" variant="elevated" color="primary">Next</VBtn>

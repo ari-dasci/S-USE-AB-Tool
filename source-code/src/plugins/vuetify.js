@@ -9,6 +9,7 @@ import { aliases, md } from 'vuetify/iconsets/md';
 import colors from 'vuetify/lib/util/colors';
 
 import { VDataTable, VDataTableServer, VDataTableVirtual } from 'vuetify/labs/VDataTable';
+import { VDatePicker } from 'vuetify/labs/VDatePicker';
 import { VSkeletonLoader } from 'vuetify/labs/VSkeletonLoader';
 import {
     VStepper,
@@ -51,7 +52,8 @@ export default createVuetify({
         VStepperActions,
         VStepperWindow,
         VStepperWindowItem,
-        VSkeletonLoader
+        VSkeletonLoader,
+        VDatePicker
     },
     directives,
     theme,

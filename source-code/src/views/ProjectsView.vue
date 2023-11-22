@@ -49,6 +49,8 @@ const intl = new Intl.DateTimeFormat('es-MX');
                             </template>
 
                             <v-list>
+                                <v-list-item title="Edit" prepend-icon="edit" @click="() => {}">
+                                </v-list-item>
                                 <v-list-item
                                     title="Delete"
                                     prepend-icon="delete"

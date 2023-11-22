@@ -75,37 +75,45 @@ watch(isAuthenticated, () => {
     <v-card title="Register" class="ma-auto w-50 pa-4 d-flex flex-column align-stretch rounded-lg">
         <div>
             <ImgPickerComponent :avatar="state.avatar" @change="imgPicked" />
-            <div class="my-12"></div>
-            <v-form>
+            <div class="my-4"></div>
+            <v-form class="d-flex flex-wrap">
                 <v-text-field
                     v-model="state.name"
+                    class="w-100 px-2"
                     label="First name"
                     :error-messages="v$.name.$errors.map(e => e.$message)"
                 ></v-text-field>
                 <v-text-field
                     v-model="state.surname"
+                    class="w-100 px-2"
                     label="Last name"
                     :error-messages="v$.surname.$errors.map(e => e.$message)"
                 ></v-text-field>
 
                 <v-text-field
                     v-model="state.password"
+                    class="w-50 px-2"
                     label="Password"
+                    type="password"
                     :error-messages="v$.password.$errors.map(e => e.$message)"
                 ></v-text-field>
                 <v-text-field
                     v-model="state.confirmPassword"
+                    class="w-50 px-2"
                     label="Confirm password"
+                    type="password"
                     :error-messages="v$.confirmPassword.$errors.map(e => e.$message)"
                 ></v-text-field>
 
                 <v-text-field
                     v-model="state.email"
+                    class="w-100 px-2"
                     label="Email"
                     :error-messages="v$.email.$errors.map(e => e.$message)"
                 ></v-text-field>
                 <v-text-field
                     v-model="state.organization"
+                    class="w-100 px-2"
                     label="Organization"
                     :error-messages="v$.organization.$errors.map(e => e.$message)"
                 ></v-text-field>

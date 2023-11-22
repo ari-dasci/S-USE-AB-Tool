@@ -19,19 +19,20 @@ const selectedCategories = computed(() => {
 </script>
 
 <template>
-    <v-card class="d-flex flex-column align-center">
-        <v-card v-for="v in selectedCategories" :key="v" class="d-flex align-center w-50 ma-1 pa-2">
-            <div class="w-25">
+    <v-card class="d-flex flex-wrap align-center">
+        <div v-for="v in selectedCategories" :key="v" class="w-50 pa-2">
+            <v-card class="d-flex pa-2 align-center justify-space-between">
                 <v-icon class="mr-2" :icon="roleCategoriesMap[v].icon" />{{
                     roleCategoriesMap[v].title
                 }}
-            </div>
-            <v-range-slider
-                :color="roleCategoriesMap[v].color"
-                :model-value="[10, 60]"
-                track-color="grey"
-            >
-            </v-range-slider>
-        </v-card>
+                <v-slider
+                    class="w-75"
+                    :color="roleCategoriesMap[v].color"
+                    :model-value="10"
+                    track-color="grey"
+                >
+                </v-slider>
+            </v-card>
+        </div>
     </v-card>
 </template>

@@ -48,73 +48,85 @@ const roles = [
         id: uuid(),
         title: 'Blind',
         subtitle: 'Permanent visual impairment.',
-        category: 1
+        category: 1,
+        icon: '/images/blind.png'
     },
     {
         id: uuid(),
         title: 'One arm',
         subtitle: 'Permanent visual impairment.',
-        category: 2
+        category: 2,
+        icon: '/images/one-arm.png'
     },
     {
         id: uuid(),
         title: 'Deaf',
         subtitle: 'Situationaly visual impairment ',
-        category: 3
+        category: 3,
+        icon: '/images/deaf.png'
     },
     {
         id: uuid(),
         title: 'Non verbal',
         subtitle: 'Situationaly visual impairment ',
-        category: 4
+        category: 4,
+        icon: '/images/non-verbal.png'
     },
     {
         id: uuid(),
         title: 'Cataratas',
         subtitle: 'Permanent visual impairment.',
-        category: 1
+        category: 1,
+        icon: '/images/cataratas.png'
     },
     {
         id: uuid(),
         title: 'Arm injury',
         subtitle: 'Permanent visual impairment.',
-        category: 2
+        category: 2,
+        icon: '/images/arm-injury.png'
     },
     {
         id: uuid(),
         title: 'Ear infection',
         subtitle: 'Permanent visual impairment.',
-        category: 3
+        category: 3,
+        icon: '/images/ear-infection.png'
     },
     {
         id: uuid(),
         title: 'Laryngitis',
         subtitle: 'Permanent visual impairment.',
-        category: 4
+        category: 4,
+        icon: '/images/laryngitis.png'
     },
     {
         id: uuid(),
         title: 'Distracted',
         subtitle: 'Permanent visual impairment.',
-        category: 1
+        category: 1,
+        icon: '/images/distracted.png'
     },
     {
         id: uuid(),
         title: 'New parent',
         subtitle: 'Permanent visual impairment.',
-        category: 2
+        category: 2,
+        icon: '/images/new-parent.png'
     },
     {
         id: uuid(),
         title: 'Bartender',
         subtitle: 'Permanent visual impairment.',
-        category: 3
+        category: 3,
+        icon: '/images/bartender.png'
     },
     {
         id: uuid(),
         title: 'Heavy accent',
         subtitle: 'Permanent visual impairment.',
-        category: 4
+        category: 4,
+        icon: '/images/heavy-accent.png'
     }
 ];
 

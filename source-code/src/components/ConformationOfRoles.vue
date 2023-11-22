@@ -23,11 +23,13 @@ const { groupedRoles, roleCategoriesMap } = mainStore;
                     :subtitle="e.subtitle"
                     :active="selectedRoles.has(e.id)"
                     class="ma-1 rounded"
-                    :prepend-icon="roleCategoriesMap[e.category].icon"
                     variant="elevated"
                     :color="roleCategoriesMap[e.category].color"
                     @click="() => updateRoles(e.id)"
                 >
+                    <template #prepend>
+                        <img style="height: 100px" :src="e.icon" />
+                    </template>
                 </v-list-item>
             </v-col>
         </div>

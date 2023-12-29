@@ -42,13 +42,11 @@ const intl = new Intl.DateTimeFormat('es-MX');
                         {{ intl.format(project.start) }} -
                         {{ intl.format(project.end) }}</v-card-subtitle
                     >
+                    <v-divider></v-divider>
                     <v-card-actions>
                         <v-menu>
                             <template #activator="{ props }">
-                                <v-btn icon="more_vert" v-bind="props"></v-btn>
-                            </template>
-
-                            <v-list>
+                                <v-list>
                                 <v-list-item title="Edit" prepend-icon="edit" @click="() => {}">
                                 </v-list-item>
                                 <v-list-item
@@ -58,6 +56,9 @@ const intl = new Intl.DateTimeFormat('es-MX');
                                 >
                                 </v-list-item>
                             </v-list>
+                            </template>
+
+                            
                         </v-menu>
                     </v-card-actions>
                 </v-card>

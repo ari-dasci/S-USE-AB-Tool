@@ -28,12 +28,12 @@ const { project } = storeToRefs(store);
 const step = computed(() => route.query.step ?? 0);
 
 const steps = [
-    'conformation of the set of alternatives',
-    'conformation of the set of criteria',
-    'Elicit pairwise judgements regarding importance of criteria',
-    'Comformation of set of users',
-    'Conformation of the set of roles',
-    'Conformation of the set of roles'
+    'Step 1: Set the alternatives',
+    'Step 2: Set the criteria',
+    'Step 2.1: Set the importance of criteria',
+    'Step 3: Set of users',
+    'Step 4: Set of roles',
+    'Step 4.1: Set the importance of roles'
 ];
 </script>
 
@@ -52,8 +52,8 @@ const steps = [
                 <v-stepper-item
                     v-for="(title, index) in steps"
                     :key="title"
-                    :title="index == step ? title : ''"
-                    :value="index"
+                    :title="index == step ? title : title"
+                    :value="index+1"
                     color="primary"
                     :complete="step > index"
                     :editable="step == index"

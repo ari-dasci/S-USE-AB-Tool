@@ -10,7 +10,7 @@
     >
         <template #top>
             <v-toolbar flat>
-                <v-toolbar-title>Criterian</v-toolbar-title>
+                <v-toolbar-title>Criteria</v-toolbar-title>
             </v-toolbar>
         </template>
         <template #item.scale="{ item }">
@@ -28,15 +28,15 @@ import { ref } from 'vue';
 import { useProjectStore } from '../stores/project';
 import { useProjectsStore } from '../stores/projects';
 
-const itemsPerPage = ref(5);
+const itemsPerPage = ref(10);
 
 const headers = [
-    { title: '#', key: 'index' },
+    // { title: 'Visible', key: 'index' },
     { title: 'Alias', key: 'alias' },
     { title: 'Name', key: 'name' },
     { title: 'Instructions', key: 'instructions' },
     // { title: 'Language', key: 'index',  },
-    { title: 'Responses scale', key: 'scale' }
+    //{ title: 'Responses scale', key: 'scale' }
     // { title: 'Actions', key: 'index',  },
 ];
 
@@ -46,7 +46,6 @@ const { evaluationCriteria } = storeToRefs(store);
 
 const projectStore = useProjectStore();
 const { selectedCriteria } = storeToRefs(projectStore);
-
 const onChange = selected => {
     projectStore.setEvaluationCriteria(selected);
 };

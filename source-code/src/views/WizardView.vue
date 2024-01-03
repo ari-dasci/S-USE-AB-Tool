@@ -53,7 +53,7 @@ const steps = [
                     v-for="(title, index) in steps"
                     :key="title"
                     :title="index == step ? title : title"
-                    :value="index+1"
+                    :value="index"
                     color="primary"
                     :complete="step > index"
                     :editable="step == index"

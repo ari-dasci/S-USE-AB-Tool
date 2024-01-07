@@ -1,10 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { useUserStore } from '../stores/user';
 import HomeView from '../views/HomeView.vue';
+import LoginView from '../views/LoginView.vue'
+
 
 const routes = [
+    { path: '/', redirect: '/login' },
+    { path: '/login', name: 'Login', component: LoginView },
     {
-        path: '/',
+        path: '/home',
         name: 'home',
         component: HomeView,
         children: [
@@ -70,13 +74,13 @@ const router = createRouter({
     routes
 });
 
-router.beforeEach((to, from, next) => {
-    const { isAuthenticated } = useUserStore();
-    if (!isAuthenticated && to.name !== 'signUp') {
-        next({ name: 'signUp' });
-    } else {
-        next();
-    }
-});
+// router.beforeEach((to, from, next) => {
+//     const { isAuthenticated } = useUserStore();
+//     if (!isAuthenticated && to.name !== 'signUp') {
+//         next({ name: 'signUp' });
+//     } else {
+//         next();
+//     }
+// });
 
 export default router;

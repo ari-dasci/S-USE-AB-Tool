@@ -15,7 +15,7 @@ const filePicked = async ({ target }) => {
         if (!files) return;
         isLoading.value = true;
         const img = await getImgData(files[0]);
-        emit('change', img);
+        emit('change', {img, file: files[0]});
     } finally {
         isLoading.value = false;
     }

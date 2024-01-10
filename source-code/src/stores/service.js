@@ -6,23 +6,23 @@ export const useCallService = defineStore('service', {
     }),
     actions: {
         async service(data) {
-            console.log(data);
+
             let config = {
                 headers: {
-                  "status": 200,
-                  "Content-Type": "application/json",
                   'Access-Control-Allow-Origin': '*',
                   }
                 }
-            await axios.post('https://lionware.dev/ari-dasci/webservice',
-            data, config)
-            .then(res => {
-                console.log(res.data);
-                
-            })
-            .catch(error => {
-                console.log(error);
-            });
+
+            const formData = new FormData();
+            for (const [key, value] of Object.entries(data)) {
+                formData.append(`${key}`, value);
+            }
+          
+
+            let resp =  await axios.post("https://lionware.dev/ari-dasci/webservice",formData);
+
+            if(resp.status == 200) return resp.data;
+            else alert("Lo sentimos, hubo un error")
         }
     }
 });

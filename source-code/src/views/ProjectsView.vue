@@ -1,4 +1,4 @@
-<script setup>
+script setup>
 import { storeToRefs } from 'pinia';
 import { ref } from 'vue';
 import CreateProjectFormComponent from '../components/CreateProjectFormComponent.vue';

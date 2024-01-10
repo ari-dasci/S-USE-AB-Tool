@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import { useUserStore } from '../stores/user';
 import HomeView from '../views/HomeView.vue';
 import LoginView from '../views/LoginView.vue'
+import UsersView from '../views/UsersView.vue'
 
 
 const routes = [
@@ -59,7 +60,10 @@ const routes = [
                 path: '/profile',
                 name: 'profile',
                 component: () => import('../views/ProfileView.vue')
-            }
+            },
+            {
+                path: '/users', name: "Users", component: UsersView
+            },
         ]
     },
     {

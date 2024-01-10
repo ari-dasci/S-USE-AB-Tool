@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-
+import axios from 'axios';
 export const useUserStore = defineStore('user', {
     state: () => ({
         user: null
@@ -10,10 +10,21 @@ export const useUserStore = defineStore('user', {
     },
     actions: {
         async register(user) {
-            await new Promise(resolve => {
-                setTimeout(resolve, 2000);
-            });
-            this.user = user;
+            console.log(user);
+            const formData = new FormData();
+            formData.append("method", user.method);
+            formData.append("firstname", user.firstname);
+            formData.append("lastname", user.lastename);
+            formData.append("password", user.password)
+            formData.append("email",user.email)
+            formData.append("organization", user.organization)
+            formData.append("profilePhoto", user.profilePhoto)
+          
+
+            let resp =  await axios.post("https://lionware.dev/ari-dasci/webservice",formData)
+            console.log(resp)
+           
+            // this.user = user;
         },
         async logout() {
             this.user = null;

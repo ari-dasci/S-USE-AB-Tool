@@ -4,7 +4,7 @@ import CreateProjectFormComponent from '../components/CreateProjectFormComponent
 
 <template>
     <v-card
-        title="Create project"
+        title="Create projeeect"
         class="ma-auto w-50 pa-4 d-flex flex-column align-stretch rounded-lg"
     >
         <div class="my-4">

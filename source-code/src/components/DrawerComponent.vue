@@ -45,6 +45,7 @@ const logout = () => {
                 color="primary"
                 prepend-icon="people"
                 title="Users"
+                to="/users"
             ></v-list-item>
             <v-list-item
                 variant="flat"

@@ -9,16 +9,22 @@ const emit = defineEmits(['submitted']);
 const store = useProjectsStore();
 
 const isLoading = ref(false);
+const menu = ref(false)
 
 const state = reactive({
-    logo: null,
+    logo: {img: null},
     title: '',
-    date: []
+    date: '',
+    menu:false,
+    selectDate:null
+    // menu:false,
+    //  date: new Date().toISOString().substr(0, 10),
+    //   menu: false,
 });
 
 const rules = {
     title: { required },
-    logo: { required }
+  
 };
 
 const v$ = useVuelidate(rules, state);
@@ -27,8 +33,14 @@ const onPicked = async img => {
     state.logo = img;
 };
 
-const onSubmit = async () => {
+const guardar = async () => {
     try {
+        const result = await v$.value.$validate();
+        if (!result) {
+            console.log("hubo un error")
+            // notify user form is invalid
+            return;
+        }
         isLoading.value = true;
         const { title, logo, date } = state;
         const [start, end] = date;
@@ -38,27 +50,107 @@ const onSubmit = async () => {
         isLoading.value = false;
     }
 };
+// const save = (date) => {
+//         this.$refs.menu.save(date)
+//       }
+
+const getDate=()=> {
+  const date = this.input ? new Date(this.input) : new Date()
+  return [date]
+}
+
+const dateSelected=()=>{
+  console.log();
+}
 </script>
 
 <template>
-    <VForm class="ma-2" @submit.prevent="onSubmit">
-        <ImgPickerComponent :avatar="state.logo" @change="onPicked" />
-        <VTextField v-model="state.title" label="Project name" name="title"></VTextField>
-        <v-menu :close-on-content-click="false">
-            <template #activator="{ props }">
-                <v-text-field
-                    v-model="state.date"
-                    label="Picker in menu"
-                    prepend-icon="event"
-                    readonly
-                    v-bind="props"
-                ></v-text-field>
-            </template>
-            <v-date-picker v-model="state.date" multiple scrollable range> </v-date-picker>
+
+   <v-container>
+        <ImgPickerComponent :avatar="state.logo.img" @change="onPicked" />
+        <v-text-field  v-model="state.title" label="Project name" :error-messages="v$.title.$errors.map(e => e.$message)"></v-text-field >
+
+        <v-menu :close-on-content-click="false" persistent>
+          <template v-slot:activator="{ props }">
+            <v-text-field
+              v-bind="props"
+              :value="state.selectedDate"
+              prepend-icon="event"
+              label="Dates">
+            </v-text-field>
+          </template>
+          <v-date-picker 
+            v-model="state.selectedDate"
+            locale="es"
+            @change="dateSelected">
+          </v-date-picker>
         </v-menu>
+
+        <!-- <v-menu>
+        <template v-slot:activator="{ props }">
+          <v-text-field
+            v-bind="props"
+            v-model="state.selectedDate"
+            prepend-icon="event"
+            label="Dates">
+          </v-text-field>
+          <v-btn v-on="on" color="primary">
+            Seleccionar Fecha
+          </v-btn>
+        </template>
+        <v-date-picker 
+          v-model="state.selectedDate"
+          locale="es"
+          @change="menu = false">
+        </v-date-picker>
+      </v-menu> -->
+        <!-- :no-buttons="true" -->
+        <!-- <v-date-picker color="primary" v-model="state.date" locale="es-MX" >
+             <template v-slot:actions>
+              <v-row class="justify-center">
+                <v-btn
+                  color="primary"
+                >
+                  Aceptar
+                </v-btn>
+                <v-btn
+                  color="error"
+                >
+                  Cancelar
+                </v-btn>
+              </v-row>
+            </template>
+
+        </v-date-picker> -->
+ 
+        <!-- <v-menu v-model="state.menu" persistent :return-value.sync="state.date">
+            <template v-slot:activator="{ props }">
+                <v-text-field v-model="state.date" prepend-icon="event"  v-bind="props" label="Dates"></v-text-field>
+            </template>
+            <v-date-picker
+                color="primary" 
+                  :modelValue="getDate"
+                @update:modelValue="updateDate"
+                locale="es-MX">
+                <template v-slot:actions>
+                <v-row class="justify-center">
+                <v-btn
+                  color="primary"
+                >
+                  Aceptar
+                </v-btn>
+                <v-btn
+                  color="error"
+                >
+                  Cancelar
+                </v-btn>
+              </v-row>
+            </template>
+            </v-date-picker>
+        </v-menu> -->
         <div class="my-2"></div>
         <v-card-actions>
-            <VBtn :loading="isLoading" type="submit" variant="elevated" color="primary">Next</VBtn>
+            <VBtn :loading="isLoading"  variant="elevated" color="primary" @click="guardar()" >Next</VBtn>
         </v-card-actions>
-    </VForm>
+   </v-container>
 </template>

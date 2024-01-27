@@ -20,10 +20,10 @@ Criteria used:
 Assesments for each alternative:
 1. Usability Test with 28 tasks x 15 users = 420 linguistic assesments of satisfaction, plus 420 time expended per task, plus success or failure on the task.
 2. SUS Questionnaire: 10 responses x 15 users, computes 15 SUS values 
-3. NPS question: 15 responses, computes 15 SUS values 
-4. Accesiblity chek with WaveTool x 4 expert users
+3. Net Promoter Score question: 15 responses, computes 15 NPS values 
+4. Accesiblity chek done with WaveTool x 4 expert users
 
-Total project asesments = 1429 * 3 = 4298
+Total project asesments = 1429 * 3 alternatives = 4298 usability assesments
 
 The previous are inputs of our LDM4USE model. Under a Computing with Words scheme, our tool computes this final report  
 

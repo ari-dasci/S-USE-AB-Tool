@@ -24,5 +24,7 @@ Assesments for each alternative:
 4. Accesiblity chek with WaveTool x 4 expert users
 
 Total project asesments = 1429 * 3 = 4298
+
 The previous are inputs of our LDM4USE model. Under a Computing with Words scheme, our tool computes this final report  
 
+![Moodle A/B test Report](USEAB-moodle-report.png)

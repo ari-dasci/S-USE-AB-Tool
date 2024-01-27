@@ -1,4 +1,4 @@
-### Moodle Case Use 
+### Moodle Usability Assesment Case Use 
 We propose to test one of the most popular Learning Management System (LMS), the one known as Moodle.
 To demonstrate the usefulness of LDM4USE proposal, we have set the same MOOC course into different Moodle platforms present in different real university centers at the University of Guadalajara, Mexico.
 

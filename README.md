@@ -10,4 +10,4 @@ This work has been supported by Ministerio de Ciencia e Innovación, Spanish Gov
 We want to express our deep gratitude to Jeronimo Durán and Jeovani Marcos Morales for their contribution to the 2TLFD method that is implicit to the LDM4USE hability to include any Usability Test. Thanks to Servando Alvarado Cisneros to contribute to the visual design of **USE-AB-test DSS**. Special best wished to people working at CEAS Coordinacion de Extension y Acción Social, University of Guadalajara, Mexico.
 
 ### Case Use
-We have applied the model to a real use case regarding the [./use-cases/moodle.md](assessment of Moodle), a Learning Management System particularly popular. 
+We have applied the model to a real use case regarding the [assessment of Moodle](./use-cases/moodle.md), a Learning Management System particularly popular. 

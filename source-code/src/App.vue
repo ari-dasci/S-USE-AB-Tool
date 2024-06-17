@@ -1,9 +1,8 @@
-<script setup>
-import { RouterView } from 'vue-router';
+<script setup lang="ts">
+import { Toaster } from "@/components/ui/toast";
 </script>
 
 <template>
-    <div class="d-flex bg-blue-grey-lighten-3 h-screen">
-        <RouterView />
-    </div>
+  <router-view class="min-h-screen"> </router-view>
+  <Toaster />
 </template>

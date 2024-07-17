@@ -11,6 +11,6 @@ Roung2_items_description.csv: [It contains the description of each item included
 judges_different_weight.csv: [This file contains the standardised weight for each judge who evaluated each item of the ELUT questionnaire].(/2TFLD-ELUT/judges:different_weight.csv)
 
 Round 2
-Round2_description.csv: [It contains the opinions of each judge for each criterion of each item included in the ELUT questionnaire relating to round 2.](/2TFLD-ELUT/Round2_responses.csv)
-Roung2_items_description.csv: [It contains the description of each item included in the ELUT questionnaire relating to round 2.](/2TFLD-ELUT/Round2_items_description.csv)
-judges_different_weight.csv: [This file contains the standardised weight for each judge who evaluated each item of the ELUT questionnaire].(/2TFLD-ELUT/judges:different_weight.csv)
+[Round2_description.csv:](/2TFLD-ELUT/Round2_responses.csv) It contains the opinions of each judge for each criterion of each item included in the ELUT questionnaire relating to round 2.]
+[Round2_items_description.csv:](/2TFLD-ELUT/Round2_items_description.csv) It contains the description of each item included in the ELUT questionnaire relating to round 2.
+[judges_different_weight.csv:](/2TFLD-ELUT/judges:different_weight.csv) This file contains the standardised weight for each judge who evaluated each item of the ELUT questionnaire.

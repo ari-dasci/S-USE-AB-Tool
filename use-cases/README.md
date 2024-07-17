@@ -12,12 +12,10 @@ Alternatives are:
 
 Decision makers are:  4 UX experts and 11 end-users, each one under selected roles.
 
-Role-playing selected: *Blind*, *Ear infection*, *Arm injury* 
+Role-playing selected: *Blind* (Visual disability), *Ear infection* (Hearing disability), *Arm injury* (Touch disability) 
 
 Criteria used:
-1. Moodle Usability Test with 28 tasks
-2. SUS Questionnaire
-3. NPS question
-4. Accesiblity chek with WaveTool
-
-Report PDF <here>
+1. [Moodle Usability Test with 28 tasks](/use-cases/Moodle_PU_Users_responses.csv)
+2. [SUS Questionnaire](/use-cases/Moodle_SUS_Users_responses.csv) 
+3. [NPS question](/use-cases/Moodle_PU_Users_responses.csv)
+4. [Accesiblity chek with WaveTool](/use-cases/Moodle_ACC_Users_responses.csv)

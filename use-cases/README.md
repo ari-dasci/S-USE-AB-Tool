@@ -16,6 +16,6 @@ Role-playing selected: *Blind* (Visual disability), *Ear infection* (Hearing dis
 
 Criteria used:
 1. Moodle Usability Test with 28 tasks
-2. SUS Questionnaire (User response file)
+2. [SUS Questionnaire](use-cases/Moodle_SUS_Users_responses.csv) 
 3. NPS question (User response file)
 4. Accesiblity chek with WaveTool (User response file)

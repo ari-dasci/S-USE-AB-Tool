@@ -9,13 +9,13 @@ Below is a list of the necessary files for each of the two rounds of content val
 
 -[Round1_description.csv:](/2TFLD-ELUT/Round1_description.csv) It contains the opinions of each judge for each criterion of each item included in the ELUT questionnaire relating to round 1.
 
--[Round2_items_description.csv:](/2TFLD-ELUT/Round1_items_description.csv) It contains the description of each item included in the ELUT questionnaire relating to round 1.
+-[Round2_responses.csv:](/2TFLD-ELUT/Round1_responses.csv) It contains the description of each item included in the ELUT questionnaire relating to round 1.
 
 -[judges_different_weight.csv:](/2TFLD-ELUT/judges_different_weight.csv) This file contains the standardised weight for each judge who evaluated each item of the ELUT questionnaire.
 
 ##Round 2
 
--[Round2_description.csv:](/2TFLD-ELUT/Round2_responses.csv) It contains the opinions of each judge for each criterion of each item included in the ELUT questionnaire relating to round 2.]
+-[Round2_description.csv:](/2TFLD-ELUT/Round2_description.csv) It contains the opinions of each judge for each criterion of each item included in the ELUT questionnaire relating to round 2.]
 
 -[Round2_responses.csv:](/2TFLD-ELUT/round2_responses.csv) It contains the description of each item included in the ELUT questionnaire relating to round 2.
 

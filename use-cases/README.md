@@ -1,5 +1,14 @@
 ### Case One - 
-We propose to test ...
+We performed the evaluation of the USE A/B tool with students of xxx. 
+Alternatives are:
+1.
+2.
+Decision makers are: 
+
+Criteria enabled at this A/B Testing:
+1. Raw responses to
+
+Finally, USE A/B Tool give the following report 
 
 ### Case Two - Moodle
 We propose to test one of the most popular Learning Management System (LMS), the one known as Moodle.
@@ -14,8 +23,10 @@ Decision makers are:  4 UX experts and 11 end-users, each one under selected rol
 
 Role-playing selected: *Blind* (Visual disability), *Ear infection* (Hearing disability), *Arm injury* (Touch disability) 
 
-Criteria used:
-1. [Moodle Usability Test with 28 tasks](/use-cases/Moodle_PU_Users_responses.csv)
-2. [SUS Questionnaire](/use-cases/Moodle_SUS_Users_responses.csv) 
-3. [NPS question](/use-cases/Moodle_PU_Users_responses.csv)
-4. [Accesiblity chek with WaveTool](/use-cases/Moodle_ACC_Users_responses.csv)
+Criteria enabled at this A/B Testing:
+1. Raw responses to [Moodle Usability Test with 28 tasks](/use-cases/Moodle_PU_Users_responses.csv) // Responses shown by [USE A/B Tool Moodle Usability Test with 28 tasks](/use-cases/Moodle_UT_Assessments.pdf)
+2. Raw responses to [SUS Questionnaire](/use-cases/Moodle_SUS_Users_responses.csv) 
+3. Raw responses to [NPS question](/use-cases/Moodle_PU_Users_responses.csv)
+4. Raw responses to [Accesiblity chek with WaveTool](/use-cases/Moodle_ACC_Users_responses.csv)
+
+Finally, USE A/B Tool give the following report [snaptshoot of case two report](USEAB-moodle-report.png) 

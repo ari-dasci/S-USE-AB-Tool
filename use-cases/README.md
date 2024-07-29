@@ -1,13 +1,20 @@
 ### Case One - 
-We performed the evaluation of the USE A/B tool with students of xxx. 
+We performed the evaluation of the USE A/B tool with students at CUTonalá, University of Guadalajara, México. 
 Alternatives are:
-1.
-2.
+1. Green version
+2. Light version
+   
 Decision makers are: 
+There were eight decision makers, UX experts and the others were end-users,each one under selected roles.
+Role-playing selected: **Blind** (Visual disability), **Arm injury** (Touch disability)
 
 Criteria enabled at this A/B Testing:
-1. Raw responses to
-
+1. Raw responses to [System Usability Test with 13 tasks](/use-cases/System_PU_Users_responses.csv)
+2. Raw responses to [SUS Questionnaire](/use-cases/System_SUS_Users_responses.csv).
+3. Raw responses to [NPS question](/use-cases/System_PU_Users_responses.csv)
+4. Raw responses to [Accesiblity chek with WaveTool](/use-cases/System_ACC_Users_responses.csv)
+5. Raw responses to [ELUT Questionnaire].
+6.  
 Finally, USE A/B Tool give the following report 
 
 ### Case Two - Moodle
@@ -21,7 +28,7 @@ Alternatives are:
 
 Decision makers are:  4 UX experts and 11 end-users, each one under selected roles.
 
-Role-playing selected: *Blind* (Visual disability), *Ear infection* (Hearing disability), *Arm injury* (Touch disability) 
+Role-playing selected: **Blind** (Visual disability), **Ear infection** (Hearing disability), **Arm injury** (Touch disability) 
 
 Criteria enabled at this A/B Testing:
 1. Raw responses to [Moodle Usability Test with 28 tasks](/use-cases/Moodle_PU_Users_responses.csv) // Responses shown by [USE A/B Tool Moodle Usability Test with 28 tasks](/use-cases/Moodle_UT_Assessments.pdf)
